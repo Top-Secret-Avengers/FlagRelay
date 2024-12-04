@@ -1,13 +1,17 @@
-# read the csv and create a list with all answers and hints
-import csv
+# read the file and create a list with all answers and hints
 
-# file = open("demo.csv","r")
+with open('answer.txt', 'r') as file:
+    ans = file.read()
 
-with open('demo.csv') as file:
-    test = csv.reader(file)
+try:
+    with open('hint.txt','r') as file:
+        hint = file.read()
+        hints = hint.splitlines()
+    # print(hints)
+except:
+    print('No Hints this time')
 
-for row in test:
-    print(row)
 
+answers = ans.splitlines()
 
-# initialize dictionary for leaderboard
+# with split answer key add to a answer array until you get to the hint array
