@@ -1,28 +1,27 @@
-async function getData() {
-  const url = "";
-  try {
-    const response = await fetch(url);
+// async function getData() {
+//   const url = "";
+//   try {
+//     const response = await fetch(url);
 
-    if (!response.ok) {
-      throw new Error(`Response status: ${response.status}`);
-    }
+//     if (!response.ok) {
+//       throw new Error(`Response status: ${response.status}`);
+//     }
 
-    const json = await response.json();
-    console.log(json);
-  } catch (error) {
-    console.error(error.message);
-  }
-}
+//     const json = await response.json();
+//     console.log(json);
+//   } catch (error) {
+//     console.error(error.message);
+//   }
+// }
 
-function login() {
-    const url = ""
-    const headers = new Headers();
-    
-    headers.append("Content-Type", "application/json");
+loginButton = document.getElementById("loginButton");
+loginButton.addEventListener("click", signIn);
+// set cookie for user when they log in,
+function signIn() {
+  let username = document.getElementById("user");
+  // user cant be already in backend
+  alert(username.innerHTML);
+  // document.cookie = `username = ${name}`;
 
-    const response = await 
-
-    try {
-        const response = await fetch(url);
-    }
+  // TODO:send to backend.
 }
