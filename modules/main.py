@@ -32,13 +32,35 @@ def login():
             else:
                 return jsonify({"error": "name taken"}), 400
 # need route for submitting answer, somehow have userId and other stuff using json body, limit amount you can send at a time
-
+@app.route('/submit', methods = ['POST'])
+def submit():
+    if request.method == 'POST':
+        data = request.get_json()
+        user = request.cookies.get('loggedin')
+        if not data or user not in players:
+            return jsonify({"error": "flag incorrect or player not logged in"}), 400
+        flag = data.get('flag')
+# we will do something special for more valuable flags, for now this works
+        if submitScore(flag, user):
+            return jsonify({'flag correct': "flag correct!"}), 200
+    
+    return jsonify({'error': "bad route"}), 400
 # need route for admin page to remove users and reveal hints
 @app.route('/admin', methods = ['GET'])
 def admin():
     return False
 
-# need route to see hints unless we put on homepage
+# Scoring --------------------------------------------------
+
+# score for a player submitting a flag
+def submitScore(flag,player,score=1):
+    print(flag)
+    if flag in answers:
+        players[player] += score
+        print(players[player])
+        return True
+    else:
+        return False
 
 #boilerplate, makes flask projects run
 if __name__ == '__main__':

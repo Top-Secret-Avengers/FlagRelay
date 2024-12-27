@@ -5,3 +5,4 @@ def addPlayer(input, dict):
     else:
         dict[input] = 0
         return True
+    
