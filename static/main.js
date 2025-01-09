@@ -49,3 +49,7 @@ function submitFlag(input) {
 document.getElementById("submit").onclick = function () {
   submitFlag();
 };
+
+// function for scoreboard
+
+// function for hints

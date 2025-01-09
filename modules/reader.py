@@ -11,13 +11,15 @@ def getAnswers():
     return res
 # catch errors reading hints file, if theres no hints still runs
 def getHints():
-    hints = None
+    hints = {}
     try:
         with open('../hints.txt','r') as file:
             hint = file.read()
-            hints = hint.splitlines()
+            temp = hint.splitlines()
+            for item in temp:
+                # hints will be checked whether they are true or false. if they are true it will send the hint otherwise it will sent a blank spot where 
+                # the user will see a hint could be
+                hints.update({item : False})
     except:
         print('No Hints this time')
-    
-    return hints
-# with split answer key add to a answer array until you get to the hint array
+        return None
