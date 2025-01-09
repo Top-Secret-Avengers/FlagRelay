@@ -4,7 +4,7 @@ from reader import getAnswers, getHints
 from helper import addPlayer
 
 app = Flask(__name__, template_folder='../templates', static_folder="../static")
-
+# use a dictionary with answers to have the answer as a key and a list of player names as the value
 answers = getAnswers()
 hints = getHints()
 players = {}
@@ -56,11 +56,19 @@ def admin():
 def submitScore(flag,player,score=1):
     print(flag)
     if flag in answers:
-        players[player] += score
-        print(players[player])
-        return True
+        if player in answers[flag]:
+            return False
+        else:
+            addScoreToPlayer(flag, player, score)
+            return True
     else:
         return False
+
+def addScoreToPlayer(flag, player,score):
+    answers[flag].append(player)
+    players[player] += score
+    print(answers)
+    print(players)
 
 #boilerplate, makes flask projects run
 if __name__ == '__main__':

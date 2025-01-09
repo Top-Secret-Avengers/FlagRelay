@@ -1,11 +1,14 @@
 # read the file and create a list with all answers and hints
 def getAnswers():
-    with open('../answer.txt', 'r') as file:
+    with open('answer.txt', 'r') as file:
         ans = file.read()
 
-    
-
-    return ans.splitlines()
+    list = ans.splitlines()
+    res = {}
+    # still need a setup for value
+    for item in list:
+        res.update({item : []})
+    return res
 # catch errors reading hints file, if theres no hints still runs
 def getHints():
     hints = None

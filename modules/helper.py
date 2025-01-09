@@ -1,8 +1,8 @@
 # add player to player dictionary, if player already exists return false
-def addPlayer(input, dict):
-    if input in dict:
+def addPlayer(input, players):
+    if input in players:
         return False
     else:
-        dict[input] = 0
+        players[input] = 0
         return True
     
