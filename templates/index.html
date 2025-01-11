@@ -10,6 +10,27 @@
     <label for="answer">Answer: </label>
     <input type="text" id="answer" />
     <button id="submit">Submit</button>
+    <table id="scoreboard">
+      <tr>
+        <th>Players</th>
+      </tr>
+      <template id="scoreboard-template">
+        <tr>
+          <td id="name">Name</td>
+          <td id="score">Score</td>
+        </tr>
+      </template>
+    </table>
+    <table id="hints">
+      <tr>
+        <th>Hints</th>
+      </tr>
+      <template id="hints-template">
+        <tr>
+          <td>Fake Hint</td>
+        </tr>
+      </template>
+    </table>
   </body>
   <script src="{{ url_for('static', filename='main.js') }}"></script>
 </html>

@@ -13,7 +13,7 @@ def getAnswers():
 def getHints():
     hints = {}
     try:
-        with open('../hints.txt','r') as file:
+        with open('hints.txt','r') as file:
             hint = file.read()
             temp = hint.splitlines()
             for item in temp:
@@ -23,3 +23,4 @@ def getHints():
     except:
         print('No Hints this time')
         return None
+    return hints

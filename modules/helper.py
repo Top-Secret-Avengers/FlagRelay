@@ -6,11 +6,20 @@ def addPlayer(input, players):
         players[input] = 0
         return True
     
+# get revealed hints checks each hint to see if it should be sent as the hint or 'unrevealed'
+def getRevealedHints(hints):
+    res = []
+    for key in hints.keys():
+        if hints[key] == True:
+            res.append(key)
+        else:
+            res.append('Unrevealed')
+    return res
 
 # Scoring --------------------------------------------------
 
 # score for a player submitting a flag. Default score is 1.
-def submitScore(flag,player,score=1, answers, players):
+def submitScore(flag,player, answers, players, score=1):
     print(flag)
     if flag in answers.keys():
         if player in answers[flag]:

@@ -1,20 +1,26 @@
 from flask import Flask, jsonify, request, render_template
 
 from reader import getAnswers, getHints
-from helper import addPlayer, submitScore
+from helper import addPlayer, submitScore, getRevealedHints
 
 app = Flask(__name__, template_folder='../templates', static_folder="../static")
 # use a dictionary with answers to have the answer as a key and a list of player names as the value
 answers = getAnswers()
 hints = getHints()
-players = {}
-
-#Use this to return the home page, with the leaderboard and hints. if not logged in send them to /login instead
+players = {"test": 0, "jawn": 5, "frank": 999}
+#TODO: config should set password, remove test players
+adminPass = 'pass'
+#Use this to return the home page, grab leaderboard and hints on frontend with /data
 @app.route('/', methods = ['GET'])
 def home():
     if(request.method == 'GET'):
         return render_template('index.html')
     
+@app.route('/data', methods = ['GET'] )
+def data():
+    if (request.method == 'GET'):
+        return jsonify(players, getRevealedHints(hints))
+
 # login route, add them to leaderboard 
 @app.route('/login', methods = ['GET','POST'])
 def login():
@@ -45,7 +51,7 @@ def submit():
             return jsonify({"error": "flag incorrect or player not logged in"}), 400
         flag = data.get('flag')
         #we will do something special for more valuable flags, for now this works
-        if submitScore(flag, user, 1, answers, players):
+        if submitScore(flag, user, answers, players):
             return jsonify({'flag correct': "flag correct!"}), 200
     
     return jsonify({'error': "bad route"}), 400

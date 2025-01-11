@@ -50,6 +50,57 @@ document.getElementById("submit").onclick = function () {
   submitFlag();
 };
 
-// function for scoreboard
+// function for calling /data
+function getData() {
+  // get the json object from /data, and put the results into the scoreboard and hints table
+  try {
+    fetch("/data", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.status == 200) {
+          console.log("data received");
+        } else {
+          console.log("error getting data");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // create the html templates here since data will be out of scope otherwise
+        let players = data[0];
+        const playerTable = document.getElementById("scoreboard");
+        const playerTemplate = document.getElementById("scoreboard-template");
 
-// function for hints
+        // for each player in players their name and score should be in the table
+        // using in since you cant iterate through the object
+        console.log(players);
+        for (const elem in players) {
+          const newRow = playerTemplate.content.cloneNode(true);
+          const cells = newRow.querySelectorAll("td");
+          console.log(elem);
+          cells[0].textContent = elem;
+          cells[1].textContent = players[elem];
+          playerTable.appendChild(newRow);
+        }
+        let hints = data[1];
+
+        const hintsTable = document.getElementById("hints");
+        const hintsTemplate = document.getElementById("hints-template");
+        // can use for of here since hints is an array
+        for (const elem of hints) {
+          const newRow = hintsTemplate.content.cloneNode(true);
+          const cells = newRow.querySelectorAll("td");
+
+          cells[0].textContent = elem;
+          hintsTable.appendChild(newRow);
+        }
+      });
+  } catch (error) {
+    console.error("error getting data:", error);
+  }
+}
+// call getData()
+getData();
