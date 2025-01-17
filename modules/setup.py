@@ -20,13 +20,23 @@ def writeAnswers():
         file.write(input)
 
 def writeHints():
-    return False
+    if showHints:
+        input = hintsEntry.get("1.0",END).rstrip('\n')
 
+        if not input:
+            messagebox.showinfo("Hints blank", "continuing without hints")
+            return
+        
+        fileName = "hints.txt"
+        with open(fileName, 'w') as file:
+            file.write(input)
+    else:
+        return False
 def start():
     writeAnswers()
     writeHints()
-
     # shut down setup and allow script to continue
+    root.destroy()
 
 root = Tk()
 

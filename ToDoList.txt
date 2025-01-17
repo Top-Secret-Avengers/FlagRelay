@@ -20,7 +20,9 @@ Dockerize the application
 
 Figure out how to use the app on the pi
 
-have app set the api ip
+make cookie last at least 1 hour instead of session so users cant break the program 
+
+setup ui needs styling BAD
 
 DEPENDENCIES
 
