@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request, render_template
 
 from reader import getAnswers, getHints
-from helper import addPlayer, submitScore, getRevealedHints
+from helper import addPlayer, submitScore
 
 app = Flask(__name__, template_folder='../templates', static_folder="../static")
 # use a dictionary with answers to have the answer as a key and a list of player names as the value
