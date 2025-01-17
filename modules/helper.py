@@ -6,7 +6,7 @@ def addPlayer(input, players):
         players[input] = 0
         return True
     
-# get revealed hints checks each hint to see if it should be sent as the hint or 'unrevealed'
+# get revealed hints checks each hint to see if it should be sent as the hint or 'unrevealed' unused at the moment
 def getRevealedHints(hints):
     res = []
     for key in hints.keys():

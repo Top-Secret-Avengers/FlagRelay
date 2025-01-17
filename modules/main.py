@@ -19,7 +19,7 @@ def home():
 @app.route('/data', methods = ['GET'] )
 def data():
     if (request.method == 'GET'):
-        return jsonify(players, getRevealedHints(hints))
+        return jsonify(players, hints)
 
 # login route, add them to leaderboard 
 @app.route('/login', methods = ['GET','POST'])
@@ -55,11 +55,6 @@ def submit():
             return jsonify({'flag correct': "flag correct!"}), 200
     
     return jsonify({'error': "bad route"}), 400
-# need route for admin page to remove users and reveal hints
-@app.route('/admin', methods = ['GET'])
-def admin():
-    return False
-
 #boilerplate, makes flask projects run
 if __name__ == '__main__':
     app.run()
