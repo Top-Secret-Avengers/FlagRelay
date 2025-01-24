@@ -1,3 +1,139 @@
+:root {
+    --grey: rgba(60, 60, 59, 1);
+    --grey-opaque: rgba(60, 60, 59, 0.6);
+    --white: #ffffff;
+    --green: #00FF00;
+}
+* {
+    overflow: hidden;
+    font-size: 1em;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+}
+.super-container {
+    height: 80vh;
+    width: 90%;
+    background-image: url('../static/skull.gif');
+    background-size: cover;
+    padding: 5%;
+}
+.table-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    min-height: 60%;
+    max-height: 60%;
+    width: 100%;
+    
+}
+.table-container * {
+    width: 40%;
+    height: 20%;
+}
+
+#scoreboard, #hints {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    background-color: rgba(0,0,0,0.8);
+    color: var(--green);
+    gap: 30px;
+}
+th {
+    background-color: var(--grey-opaque);
+}
+#scoreboard * {
+    border-bottom: solid 1px var(--green);
+    word-wrap: break-word;
+}
+#hints * {
+    border-bottom: solid 1px var(--green);
+}
+
 body {
-    background-color: black;
+    background-color: #000;
+    color: #fff;
+}
+
+.answer-container {
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.8);
+    align-items: center;
+    border: solid 1px var(--green);
+    flex-shrink: 1;
+    flex-grow: 1;
+}
+.answer-container p {
+    color: var(--green);
+    font-size: 2em;
+}
+.answer {
+    display: flex;
+    flex-direction: column;
+    max-height: 80%;
+    max-width: 90%;
+    flex-grow: 1;
+    overflow: visible;
+}
+.answer input{
+    height: 10vh;
+    width: 60vw;
+    min-width: none;
+    font-size: 3em;
+    color: var(--green);
+    background-color: var(--grey-opaque);
+    transition: border-color 2s ease, box-shadow 2s ease;
+}
+input:focus {
+    outline: none;
+    border: solid 1px var(--green);
+}
+.submitter {
+    display: flex;
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+    flex-wrap: nowrap;
+}
+
+button,
+button *,
+button :after,
+button :before,
+button:after,
+button:before {
+  border: 0 solid;
+  box-sizing: border-box;
+}
+button {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: button;
+  background-color: #000;
+  background-image: none;
+  color: var(--green);
+  cursor: pointer;
+  font-size: 100%;
+  font-weight: 900;
+  line-height: 1.5;
+  margin: 0;
+  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+  padding: 0;
+  text-transform: uppercase;
+}
+button:disabled {
+  cursor: default;
+}
+button:-moz-focusring {
+  outline: auto;
+}
+button {
+  border-width: 2px;
+  padding: 0.8rem 3rem;
+}
+button:hover {
+  color: var(--green);
 }
