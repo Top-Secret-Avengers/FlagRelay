@@ -7,9 +7,6 @@ app = Flask(__name__, template_folder='../templates', static_folder="../static")
 # use a dictionary with answers to have the answer as a key and a list of player names as the value
 answers = getAnswers()
 hints = getHints()
-players = {"test": 0, "jawn": 5, "frank": 999}
-#TODO: config should set password, remove test players
-adminPass = 'pass'
 #Use this to return the home page, grab leaderboard and hints on frontend with /data
 @app.route('/', methods = ['GET'])
 def home():
