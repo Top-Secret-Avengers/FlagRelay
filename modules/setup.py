@@ -1,7 +1,9 @@
 from tkinter import *
 from tkinter import messagebox
 
-
+# Since the tkinter dependencies are strange in virtual environments the 
+# setup.py file does not want to work with docker. 
+# will need to find a new solution (likely bash) or fix the tk dependency issue
 def toggle():
     if showHints.get():
         hintsFrame.pack(fill="both", expand=True)
