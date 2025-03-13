@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
-  </head>
+    <title>Relay Login</title>
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
   <body>
-    <label for="user">Name: </label>
-    <input type="text" id="user" />
-    <button id="loginButton">Login</button>
+      <div class="userlogin">
+          <input type="text" id="user" placeholder="enter your username here" />
+          <button id="loginButton">Start Here</button>
+          <a href="https://github.com/Top-Secret-Avengers/FlagRelay">Flag Relay Github</a>
+          <a href="https://github.com/Top-Secret-Avengers/Written-Guides">Documentation and Help</a>
+      </div>
   </body>
   <script src="{{ url_for('static', filename='login.js') }}"></script>
 </html>

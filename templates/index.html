@@ -7,45 +7,35 @@
     <link rel="stylesheet" href="/static/style.css" />
   </head>
   <body>
-    <div class="super-container">
-      <div class="table-container">
-        <div class="scoreboard-container">
-          <table id="scoreboard">
-            <tr>
-              <th>Players</th>
-              <th>Score</th>
-            </tr>
-            <template id="scoreboard-template">
-              <tr>
-                <td id="name">Name</td>
-                <td id="score">Flags Found</td>
-              </tr>
-            </template>
-          </table>
-        </div>
-        <div class="hints-container">
-          <table id="hints">
-            <tr>
-              <th>Hints</th>
-            </tr>
-            <template id="hints-template">
-              <tr>
-                <td>Fake Hint</td>
-              </tr>
-            </template>
-          </table>
-        </div>
+      <div class="titlelogin">
+          <h1> Flag Relay </h1>
       </div>
-      <div class="answer-container">
-        <div class="answer">
-          <p>Enter your flag here:</p>
-          <div class="submitter">
-            <input type="text" id="answer" />
-            <button id="submit">Submit</button>
+      <div class="super-container">
+          <div class="table-container">
+              <div class="scoreboard-container">
+                  <table id="scoreboard">
+                      <tr>
+                          <th>Players</th>
+                          <th>Score</th>
+                      </tr>
+                      <template id="scoreboard-template">
+                          <tr>
+                              <td id="name">Name</td>
+                              <td id="score">Flags Found</td>
+                          </tr>
+                      </template>
+                  </table>
+              </div>
           </div>
-        </div>
+          <div class="answer-container">
+              <div class="answer">
+                  <div class="submitter">
+                      <input type="text" id="answer" placeholder="Your flag here" />
+                      <button id="submit">Submit</button>
+                  </div>
+              </div>
+          </div>
       </div>
-    </div>
   </body>
   <script src="{{ url_for('static', filename='main.js') }}"></script>
 </html>
