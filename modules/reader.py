@@ -8,6 +8,7 @@ def getAnswers():
     # still need a setup for value
     for item in list:
         res.update({item : []})
+    print(res)
     return res
 # catch errors reading hints file, if theres no hints still runs
 def getHints():
